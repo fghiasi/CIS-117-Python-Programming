@@ -22,7 +22,7 @@
 # Return true if pass satisfies min char length requirement
 def has_min_length(password):
 
-    min_length = 8
+    MIN_LENGTH = 8
 
     if len(password) < min_length :
 
