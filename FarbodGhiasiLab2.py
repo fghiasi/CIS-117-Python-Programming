@@ -24,15 +24,15 @@ def has_min_length(password):
 
     MIN_LENGTH = 8
 
-    if len(password) < min_length :
+    if len(password) < MIN_LENGTH:
 
         display_error("=> The password must be at least 8 characters long.")
 
-    return len(password) >= min_length
+    return len(password) >= MIN_LENGTH
 
 
 # Return True if pass has at least one upper case
-def has_upper_case(password):
+def is_upper_case(password):
 
     for letter in password:
 
@@ -46,7 +46,7 @@ def has_upper_case(password):
 
 
 # Return True if pass has at least one lower case
-def has_lower_case(password):
+def is_lower_case(password):
 
     for letter in password:
 
@@ -86,10 +86,10 @@ def is_match(password):
 
 
 # Return True if pass meet all requirements
-def has_requirements(password):
+def have_requirements(password):
 
-    return has_lower_case(password) and \
-           has_upper_case(password) and \
+    return is_lower_case(password) and \
+           is_upper_case(password) and \
            has_digit(password) and \
            has_min_length(password) and \
            is_match(password)
@@ -116,7 +116,7 @@ password = get_password("Please Enter a password considering above "
                         "conditions:")
 
 # ask user to correct the pass to meet requirement
-while not has_requirements(password):
+while not have_requirements(password):
     password = get_password("Try again: Please Enter a password.")
 
 # Print the pass will work.
